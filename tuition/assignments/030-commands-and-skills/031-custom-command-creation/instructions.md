@@ -2,19 +2,15 @@
 
 ### Goal
 
-Create a **reusable Claude skill generator** that helps you scaffold new skills quickly and consistently, using prompt-engineering best practices.
+Create a **reusable skill generator** that helps you create new skills quickly.
 
 By the end, you will have a (meta) **skill** usable via **slash command**.
-
-When triggered, this command:
-	* Inspects your current project to identify local coding patterns and conventions.
-	* Generates a new, custom skill tailored to those specific project requirements.
 
 ---
 
 ### Task
 
-The new skill must:
+The `new-skill` skill must:
 1. Be invocable via a **slash command** (e.g., `/new-skill`).
 2. **Explore the current project structure and conventions** to gather context necessary for generating a skill that fits well within the existing ecosystem.
 
@@ -35,8 +31,7 @@ Example invocation:
 
 ### Hints 
 
-- Feel free to use https://code.claude.com/docs/en/skills
-- Feel free to use tool permission documentation: https://code.claude.com/docs/en/iam#tool-specific-permission-rules
+- Feel free to use [https://code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills)
 
 ---
 
