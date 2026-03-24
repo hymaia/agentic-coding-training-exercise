@@ -69,6 +69,7 @@ const createItemsTable = `
     postal_code TEXT,
     country TEXT NOT NULL DEFAULT 'FR',
     delivery_available INTEGER NOT NULL DEFAULT 0,
+    warranty TEXT NOT NULL DEFAULT 'none' CHECK(warranty IN ('none', '6_months', '1_year', '2_years')),
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now')),
     published_at TEXT,
@@ -135,6 +136,9 @@ console.log('✓ Created index on city');
 
 db.exec('CREATE INDEX idx_items_price_cents ON items(price_cents);');
 console.log('✓ Created index on price_cents');
+
+db.exec('CREATE INDEX idx_items_warranty ON items(warranty);');
+console.log('✓ Created index on warranty');
 
 // Verify schema
 const tableInfo = db.prepare("PRAGMA table_info(items)").all() as any[];

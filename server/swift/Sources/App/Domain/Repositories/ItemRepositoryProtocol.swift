@@ -21,6 +21,7 @@ struct ItemFilters: Sendable {
     let deliveryAvailable: Bool?
     let minPriceCents: Int?
     let maxPriceCents: Int?
+    let warranty: ItemWarranty?
 
     init(
         status: String? = nil,
@@ -30,7 +31,8 @@ struct ItemFilters: Sendable {
         isFeatured: Bool? = nil,
         deliveryAvailable: Bool? = nil,
         minPriceCents: Int? = nil,
-        maxPriceCents: Int? = nil
+        maxPriceCents: Int? = nil,
+        warranty: ItemWarranty? = nil
     ) {
         self.status = status
         self.category = category
@@ -40,6 +42,7 @@ struct ItemFilters: Sendable {
         self.deliveryAvailable = deliveryAvailable
         self.minPriceCents = minPriceCents
         self.maxPriceCents = maxPriceCents
+        self.warranty = warranty
     }
 }
 

@@ -83,6 +83,15 @@ struct ItemController {
             }
         }
 
+        var warranty: ItemWarranty?
+        if let warrantyStr = req.query["warranty"] as String? {
+            if let w = ItemWarranty(rawValue: warrantyStr) {
+                warranty = w
+            } else {
+                validationErrors["warranty"] = "Invalid warranty value"
+            }
+        }
+
         // Build filters
         let filters = ItemFilters(
             status: status,
@@ -92,7 +101,8 @@ struct ItemController {
             isFeatured: isFeatured,
             deliveryAvailable: deliveryAvailable,
             minPriceCents: minPriceCents,
-            maxPriceCents: maxPriceCents
+            maxPriceCents: maxPriceCents,
+            warranty: warranty
         )
 
         // Parse sort parameter

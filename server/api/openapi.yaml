@@ -114,6 +114,13 @@ paths:
           schema:
             type: boolean
           example: true
+        - name: warranty
+          in: query
+          description: Filter by warranty
+          schema:
+            type: string
+            enum: [none, 6_months, 1_year, 2_years]
+          example: 1_year
         - name: sort
           in: query
           description: |
@@ -512,6 +519,7 @@ components:
         - is_featured
         - country
         - delivery_available
+        - warranty
         - created_at
         - updated_at
         - images
@@ -576,6 +584,12 @@ components:
           type: boolean
           description: Whether delivery is available
           example: true
+        warranty:
+          type: string
+          enum: [none, 6_months, 1_year, 2_years]
+          default: none
+          description: Warranty duration
+          example: none
         created_at:
           type: string
           format: date-time
@@ -683,6 +697,12 @@ components:
           default: false
           description: Whether delivery is available
           example: false
+        warranty:
+          type: string
+          enum: [none, 6_months, 1_year, 2_years]
+          default: none
+          description: Warranty duration
+          example: none
         images:
           type: array
           items:
@@ -700,6 +720,7 @@ components:
         - is_featured
         - country
         - delivery_available
+        - warranty
         - images
       properties:
         title:
@@ -755,6 +776,11 @@ components:
           type: boolean
           description: Whether delivery is available
           example: true
+        warranty:
+          type: string
+          enum: [none, 6_months, 1_year, 2_years]
+          description: Warranty duration
+          example: none
         images:
           type: array
           items:
@@ -817,6 +843,11 @@ components:
           type: boolean
           description: Whether delivery is available
           example: true
+        warranty:
+          type: string
+          enum: [none, 6_months, 1_year, 2_years]
+          description: Warranty duration
+          example: none
         images:
           type: array
           items:

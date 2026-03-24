@@ -14,6 +14,7 @@ struct Item: Codable, Equatable, Sendable {
     let postalCode: String?
     let country: String
     let deliveryAvailable: Bool
+    let warranty: ItemWarranty
     let createdAt: Date
     let updatedAt: Date
     let publishedAt: Date?
@@ -32,6 +33,7 @@ struct Item: Codable, Equatable, Sendable {
         case postalCode = "postal_code"
         case country
         case deliveryAvailable = "delivery_available"
+        case warranty
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case publishedAt = "published_at"
@@ -51,6 +53,7 @@ struct Item: Codable, Equatable, Sendable {
         postalCode: String? = nil,
         country: String,
         deliveryAvailable: Bool,
+        warranty: ItemWarranty = .none,
         createdAt: Date,
         updatedAt: Date,
         publishedAt: Date? = nil,
@@ -68,6 +71,7 @@ struct Item: Codable, Equatable, Sendable {
         self.postalCode = postalCode
         self.country = country
         self.deliveryAvailable = deliveryAvailable
+        self.warranty = warranty
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.publishedAt = publishedAt
@@ -88,6 +92,7 @@ struct CreateItemData: Sendable {
     let postalCode: String?
     let country: String
     let deliveryAvailable: Bool
+    let warranty: ItemWarranty
     let images: [ItemImage]
 
     func withDefaults() -> CreateItemData {
@@ -103,6 +108,7 @@ struct CreateItemData: Sendable {
             postalCode: postalCode,
             country: country.isEmpty ? "FR" : country,
             deliveryAvailable: deliveryAvailable,
+            warranty: warranty,
             images: images
         )
     }
@@ -121,6 +127,7 @@ struct UpdateItemData: Sendable {
     var postalCode: String?
     var country: String?
     var deliveryAvailable: Bool?
+    var warranty: ItemWarranty?
     var images: [ItemImage]?
 }
 
@@ -137,5 +144,6 @@ struct ReplaceItemData: Sendable {
     let postalCode: String?
     let country: String
     let deliveryAvailable: Bool
+    let warranty: ItemWarranty
     let images: [ItemImage]
 }

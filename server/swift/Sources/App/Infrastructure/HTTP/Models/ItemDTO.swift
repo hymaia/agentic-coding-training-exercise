@@ -28,6 +28,7 @@ struct ItemResponse: Content {
     let postalCode: String?
     let country: String
     let deliveryAvailable: Bool
+    let warranty: String
     let createdAt: String
     let updatedAt: String
     let publishedAt: String?
@@ -46,6 +47,7 @@ struct ItemResponse: Content {
         case postalCode = "postal_code"
         case country
         case deliveryAvailable = "delivery_available"
+        case warranty
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case publishedAt = "published_at"
@@ -65,6 +67,7 @@ struct ItemResponse: Content {
         self.postalCode = item.postalCode
         self.country = item.country
         self.deliveryAvailable = item.deliveryAvailable
+        self.warranty = item.warranty.rawValue
         self.createdAt = ISO8601Formatter.string(from: item.createdAt)
         self.updatedAt = ISO8601Formatter.string(from: item.updatedAt)
         self.publishedAt = item.publishedAt.map { ISO8601Formatter.string(from: $0) }
@@ -103,6 +106,7 @@ struct CreateItemRequest: Content {
     let postalCode: String?
     let country: String?
     let deliveryAvailable: Bool?
+    var warranty: ItemWarranty?
     let images: [ItemImage]?
 
     enum CodingKeys: String, CodingKey {
@@ -117,6 +121,7 @@ struct CreateItemRequest: Content {
         case postalCode = "postal_code"
         case country
         case deliveryAvailable = "delivery_available"
+        case warranty
         case images
     }
 
@@ -147,6 +152,7 @@ struct CreateItemRequest: Content {
             postalCode: postalCode,
             country: country ?? "FR",
             deliveryAvailable: deliveryAvailable ?? false,
+            warranty: warranty ?? .none,
             images: images ?? []
         )
     }
@@ -165,6 +171,7 @@ struct UpdateItemRequest: Content {
     let postalCode: String?
     let country: String
     let deliveryAvailable: Bool
+    let warranty: ItemWarranty
     let images: [ItemImage]
 
     enum CodingKeys: String, CodingKey {
@@ -179,6 +186,7 @@ struct UpdateItemRequest: Content {
         case postalCode = "postal_code"
         case country
         case deliveryAvailable = "delivery_available"
+        case warranty
         case images
     }
 
@@ -203,6 +211,7 @@ struct UpdateItemRequest: Content {
             postalCode: postalCode,
             country: country,
             deliveryAvailable: deliveryAvailable,
+            warranty: warranty,
             images: images
         )
     }
@@ -221,6 +230,7 @@ struct PatchItemRequest: Content {
     let postalCode: String?
     let country: String?
     let deliveryAvailable: Bool?
+    let warranty: ItemWarranty?
     let images: [ItemImage]?
 
     enum CodingKeys: String, CodingKey {
@@ -235,6 +245,7 @@ struct PatchItemRequest: Content {
         case postalCode = "postal_code"
         case country
         case deliveryAvailable = "delivery_available"
+        case warranty
         case images
     }
 
@@ -262,6 +273,7 @@ struct PatchItemRequest: Content {
         if let postalCode = postalCode { data.postalCode = postalCode }
         if let country = country { data.country = country }
         if let deliveryAvailable = deliveryAvailable { data.deliveryAvailable = deliveryAvailable }
+        if let warranty = warranty { data.warranty = warranty }
         if let images = images { data.images = images }
 
         return data

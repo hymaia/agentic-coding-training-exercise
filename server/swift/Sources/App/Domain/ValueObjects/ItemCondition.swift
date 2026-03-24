@@ -18,3 +18,11 @@ enum ItemStatus: String, Codable, CaseIterable, Sendable {
     case sold = "sold"
     case archived = "archived"
 }
+
+/// Item warranty enum
+enum ItemWarranty: String, Codable, CaseIterable, Sendable {
+    case none = "none"
+    case sixMonths = "6_months"
+    case oneYear = "1_year"
+    case twoYears = "2_years"
+}
