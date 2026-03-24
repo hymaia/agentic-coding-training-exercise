@@ -274,6 +274,16 @@
                 <option value="false">false</option>
               </select>
             </label>
+            <label>
+              Warranty
+              <select name="warranty">
+                <option value="">All</option>
+                <option value="none">No warranty</option>
+                <option value="6_months">6 months</option>
+                <option value="1_year">1 year</option>
+                <option value="2_years">2 years</option>
+              </select>
+            </label>
           </div>
           <div class="inline">
             <button type="submit">Search items</button>
@@ -371,6 +381,16 @@
         return `€${euros.toFixed(2)}`;
       };
 
+      const formatWarranty = (warranty) => {
+        switch (warranty) {
+          case "none": return "No warranty";
+          case "6_months": return "6 months";
+          case "1_year": return "1 year";
+          case "2_years": return "2 years";
+          default: return warranty ?? "-";
+        }
+      };
+
       const loadDetail = async (id) => {
         if (!id) return;
         setStatus(detailStatus, "Loading...", false);
@@ -407,6 +427,7 @@
             <div class="muted">${item.category ?? "(no category)"} · ${item.condition ?? ""} · ${item.status ?? ""}</div>
             <div>Price: ${formatPrice(item.price_cents)}</div>
             <div class="muted">${item.city ?? ""} ${item.postal_code ?? ""} ${item.country ?? ""}</div>
+            <div class="muted">Warranty: ${formatWarranty(item.warranty)}</div>
           `;
 
           card.addEventListener("click", () => {
@@ -436,6 +457,7 @@
           <div>Price: ${formatPrice(item.price_cents)}</div>
           <div>${item.city ?? ""} ${item.postal_code ?? ""} ${item.country ?? ""}</div>
           <div>Delivery: ${item.delivery_available ? "Available" : "Not available"}</div>
+          <div>Warranty: ${formatWarranty(item.warranty)}</div>
         `;
 
         const description = document.createElement("div");

@@ -57,6 +57,41 @@ struct ItemController {
             }
         }
 
+        var minPriceCents: Int?
+        if let minPriceStr = req.query["min_price_cents"] as String? {
+            if let value = Int(minPriceStr) {
+                if value < 0 {
+                    validationErrors["min_price_cents"] = "min_price_cents must be >= 0"
+                } else {
+                    minPriceCents = value
+                }
+            } else {
+                validationErrors["min_price_cents"] = "min_price_cents must be an integer"
+            }
+        }
+
+        var maxPriceCents: Int?
+        if let maxPriceStr = req.query["max_price_cents"] as String? {
+            if let value = Int(maxPriceStr) {
+                if value < 0 {
+                    validationErrors["max_price_cents"] = "max_price_cents must be >= 0"
+                } else {
+                    maxPriceCents = value
+                }
+            } else {
+                validationErrors["max_price_cents"] = "max_price_cents must be an integer"
+            }
+        }
+
+        var warranty: ItemWarranty?
+        if let warrantyStr = req.query["warranty"] as String? {
+            if let w = ItemWarranty(rawValue: warrantyStr) {
+                warranty = w
+            } else {
+                validationErrors["warranty"] = "Invalid warranty value"
+            }
+        }
+
         // Build filters
         let filters = ItemFilters(
             status: status,
@@ -64,7 +99,10 @@ struct ItemController {
             city: city,
             postalCode: postalCode,
             isFeatured: isFeatured,
-            deliveryAvailable: deliveryAvailable
+            deliveryAvailable: deliveryAvailable,
+            minPriceCents: minPriceCents,
+            maxPriceCents: maxPriceCents,
+            warranty: warranty
         )
 
         // Parse sort parameter

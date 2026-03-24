@@ -46,6 +46,8 @@ const CONDITIONS = ['new', 'like_new', 'good', 'fair', 'parts', 'unknown'];
 
 const STATUSES = ['draft', 'active', 'reserved', 'sold', 'archived'];
 
+const WARRANTIES = ['none', '6_months', '1_year', '2_years'];
+
 const CITIES = [
   { name: 'Strasbourg', postalCode: '67000' },
   { name: 'Paris', postalCode: '75001' },
@@ -123,8 +125,8 @@ const insertStmt = db.prepare(`
   INSERT INTO items (
     title, description, price_cents, category, condition, status,
     is_featured, city, postal_code, country, delivery_available,
-    created_at, updated_at, published_at, images
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    warranty, created_at, updated_at, published_at, images
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const items: any[] = [];
@@ -135,6 +137,7 @@ for (let i = 0; i < 15; i++) {
   const status = randomItem(STATUSES);
   const isFeatured = Math.random() > 0.8 ? 1 : 0; // 20% chance of being featured
   const deliveryAvailable = Math.random() > 0.3 ? 1 : 0; // 70% chance of delivery available
+  const warranty = randomItem(WARRANTIES);
   const priceCents = randomPrice();
   const publishedAt = status === 'active' ? new Date(Date.now() - randomInt(0, 30 * 24 * 60 * 60 * 1000)).toISOString() : null;
   const createdAt = new Date(Date.now() - randomInt(0, 60 * 24 * 60 * 60 * 1000)).toISOString();
@@ -152,6 +155,7 @@ for (let i = 0; i < 15; i++) {
     postal_code: city.postalCode,
     country: 'FR',
     delivery_available: deliveryAvailable,
+    warranty,
     created_at: createdAt,
     updated_at: updatedAt,
     published_at: publishedAt,
@@ -170,6 +174,7 @@ for (let i = 0; i < 15; i++) {
     item.postal_code,
     item.country,
     item.delivery_available,
+    item.warranty,
     item.created_at,
     item.updated_at,
     item.published_at,

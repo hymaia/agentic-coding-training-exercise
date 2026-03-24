@@ -19,6 +19,9 @@ struct ItemFilters: Sendable {
     let postalCode: String?
     let isFeatured: Bool?
     let deliveryAvailable: Bool?
+    let minPriceCents: Int?
+    let maxPriceCents: Int?
+    let warranty: ItemWarranty?
 
     init(
         status: String? = nil,
@@ -26,7 +29,10 @@ struct ItemFilters: Sendable {
         city: String? = nil,
         postalCode: String? = nil,
         isFeatured: Bool? = nil,
-        deliveryAvailable: Bool? = nil
+        deliveryAvailable: Bool? = nil,
+        minPriceCents: Int? = nil,
+        maxPriceCents: Int? = nil,
+        warranty: ItemWarranty? = nil
     ) {
         self.status = status
         self.category = category
@@ -34,6 +40,9 @@ struct ItemFilters: Sendable {
         self.postalCode = postalCode
         self.isFeatured = isFeatured
         self.deliveryAvailable = deliveryAvailable
+        self.minPriceCents = minPriceCents
+        self.maxPriceCents = maxPriceCents
+        self.warranty = warranty
     }
 }
 

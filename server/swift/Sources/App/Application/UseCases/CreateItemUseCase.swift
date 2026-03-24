@@ -57,6 +57,7 @@ actor CreateItemUseCase {
             postalCode: data.postalCode,
             country: data.country.isEmpty ? "FR" : data.country,
             deliveryAvailable: data.deliveryAvailable,
+            warranty: data.warranty,
             images: data.images
         )
     }

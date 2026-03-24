@@ -20,7 +20,7 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
             INSERT INTO items (
                 title, description, price_cents, category, condition, status,
                 is_featured, city, postal_code, country, delivery_available,
-                images, created_at, updated_at
+                warranty, images, created_at, updated_at
             ) VALUES (
                 \(bind: item.title),
                 \(bind: item.description),
@@ -33,6 +33,7 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
                 \(bind: item.postalCode),
                 \(bind: item.country),
                 \(bind: item.deliveryAvailable ? 1 : 0),
+                \(bind: item.warranty.rawValue),
                 \(bind: imagesString),
                 \(bind: now),
                 \(bind: now)
@@ -93,6 +94,15 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         }
         if let deliveryAvailable = filters.deliveryAvailable {
             whereConditions.append("delivery_available = \(bind: deliveryAvailable)")
+        }
+        if let minPriceCents = filters.minPriceCents {
+            whereConditions.append("price_cents >= \(bind: minPriceCents)")
+        }
+        if let maxPriceCents = filters.maxPriceCents {
+            whereConditions.append("price_cents <= \(bind: maxPriceCents)")
+        }
+        if let warranty = filters.warranty {
+            whereConditions.append("warranty = \(bind: warranty.rawValue)")
         }
 
         // Handle cursor pagination
@@ -163,6 +173,15 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         if let deliveryAvailable = filters.deliveryAvailable {
             whereConditions.append("items.delivery_available = \(bind: deliveryAvailable)")
         }
+        if let minPriceCents = filters.minPriceCents {
+            whereConditions.append("items.price_cents >= \(bind: minPriceCents)")
+        }
+        if let maxPriceCents = filters.maxPriceCents {
+            whereConditions.append("items.price_cents <= \(bind: maxPriceCents)")
+        }
+        if let warranty = filters.warranty {
+            whereConditions.append("items.warranty = \(bind: warranty.rawValue)")
+        }
 
         // Handle cursor pagination
         if let cursor = cursor, let cursorData = CursorCodec.decode(cursor) {
@@ -228,6 +247,7 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
                 postal_code = \(bind: item.postalCode),
                 country = \(bind: item.country),
                 delivery_available = \(bind: item.deliveryAvailable ? 1 : 0),
+                warranty = \(bind: item.warranty.rawValue),
                 images = \(bind: imagesString),
                 updated_at = \(bind: now)
             WHERE id = \(bind: id)
@@ -259,10 +279,10 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
             updates.append("category = \(bind: category)")
         }
         if let condition = data.condition {
-            updates.append("condition = \(bind: condition)")
+            updates.append("condition = \(bind: condition.rawValue)")
         }
         if let status = data.status {
-            updates.append("status = \(bind: status)")
+            updates.append("status = \(bind: status.rawValue)")
         }
         if let isFeatured = data.isFeatured {
             updates.append("is_featured = \(bind: isFeatured)")
@@ -278,6 +298,9 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         }
         if let deliveryAvailable = data.deliveryAvailable {
             updates.append("delivery_available = \(bind: deliveryAvailable)")
+        }
+        if let warranty = data.warranty {
+            updates.append("warranty = \(bind: warranty.rawValue)")
         }
         if let images = data.images {
             let imagesJSON = try JSONEncoder().encode(images)
@@ -332,11 +355,13 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         let isFeaturedInt: Int = try row.decode(column: "is_featured")
         let country: String = try row.decode(column: "country")
         let deliveryAvailableInt: Int = try row.decode(column: "delivery_available")
+        let warrantyRaw: String = try row.decode(column: "warranty")
         let createdAtString: String = try row.decode(column: "created_at")
         let updatedAtString: String = try row.decode(column: "updated_at")
 
         guard let condition = ItemCondition(rawValue: conditionRaw),
               let status = ItemStatus(rawValue: statusRaw),
+              let warranty = ItemWarranty(rawValue: warrantyRaw),
               let createdAt = ISO8601Formatter.date(from: createdAtString),
               let updatedAt = ISO8601Formatter.date(from: updatedAtString) else {
             throw DomainError.internalError("Failed to parse item row")
@@ -365,6 +390,7 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
             postalCode: postalCode,
             country: country,
             deliveryAvailable: deliveryAvailableInt != 0,
+            warranty: warranty,
             createdAt: createdAt,
             updatedAt: updatedAt,
             publishedAt: publishedAt,
