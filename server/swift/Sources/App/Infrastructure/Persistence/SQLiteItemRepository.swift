@@ -94,6 +94,12 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         if let deliveryAvailable = filters.deliveryAvailable {
             whereConditions.append("delivery_available = \(bind: deliveryAvailable)")
         }
+        if let minPriceCents = filters.minPriceCents {
+            whereConditions.append("price_cents >= \(bind: minPriceCents)")
+        }
+        if let maxPriceCents = filters.maxPriceCents {
+            whereConditions.append("price_cents <= \(bind: maxPriceCents)")
+        }
 
         // Handle cursor pagination
         if let cursor = cursor, let cursorData = CursorCodec.decode(cursor) {
@@ -162,6 +168,12 @@ actor SQLiteItemRepository: ItemRepositoryProtocol {
         }
         if let deliveryAvailable = filters.deliveryAvailable {
             whereConditions.append("items.delivery_available = \(bind: deliveryAvailable)")
+        }
+        if let minPriceCents = filters.minPriceCents {
+            whereConditions.append("items.price_cents >= \(bind: minPriceCents)")
+        }
+        if let maxPriceCents = filters.maxPriceCents {
+            whereConditions.append("items.price_cents <= \(bind: maxPriceCents)")
         }
 
         // Handle cursor pagination
