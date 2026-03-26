@@ -45,6 +45,16 @@ export class ConflictError extends AppError {
 }
 
 /**
+ * Read-only datastore error
+ */
+export class ReadOnlyDataStoreError extends AppError {
+  constructor(message: string = 'Write operations are disabled for the current datastore backend') {
+    super('read_only_data_store', message, 405);
+    this.name = 'ReadOnlyDataStoreError';
+  }
+}
+
+/**
  * Internal server error
  */
 export class InternalError extends AppError {

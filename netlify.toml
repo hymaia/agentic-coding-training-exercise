@@ -1,0 +1,17 @@
+[build]
+  command = "npm run netlify:build"
+  publish = "client"
+  functions = "netlify/functions"
+
+[functions]
+  included_files = ["server/typescript/dist/**", "server/typescript/data/items.json"]
+
+[[redirects]]
+  from = "/v1/*"
+  to = "/.netlify/functions/api/v1/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/api/health"
+  status = 200

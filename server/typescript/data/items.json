@@ -1,0 +1,462 @@
+{
+  "generated_at": "2026-03-26T01:08:03.220Z",
+  "seed": 424242,
+  "count": 15,
+  "items": [
+    {
+      "id": 1,
+      "title": "Fujifilm X-T4",
+      "description": "Bon etat general, traces d'utilisation normales. Tout fonctionne correctement.",
+      "price_cents": 31522,
+      "category": "Accessoires",
+      "condition": "fair",
+      "status": "archived",
+      "is_featured": false,
+      "city": "Nice",
+      "postal_code": "06000",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-02-20T03:34:21.807Z",
+      "updated_at": "2026-03-23T12:17:01.468Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/2611/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/9072/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/7964/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        },
+        {
+          "url": "https://picsum.photos/seed/7163/800/600.jpg",
+          "alt": "Image 4",
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "PlayStation 5",
+      "description": "Bon etat general, traces d'utilisation normales. Tout fonctionne correctement.",
+      "price_cents": 59657,
+      "category": "Ordinateurs",
+      "condition": "unknown",
+      "status": "active",
+      "is_featured": false,
+      "city": "Paris",
+      "postal_code": "75001",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-03-09T14:13:49.048Z",
+      "updated_at": "2026-03-21T12:02:53.552Z",
+      "published_at": "2026-03-22T10:57:09.783Z",
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/9058/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Sony WH-1000XM4",
+      "description": "Bon etat general, traces d'utilisation normales. Tout fonctionne correctement.",
+      "price_cents": 104539,
+      "category": "Accessoires",
+      "condition": "good",
+      "status": "archived",
+      "is_featured": false,
+      "city": "Toulouse",
+      "postal_code": "31000",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-02-22T14:53:35.230Z",
+      "updated_at": "2026-03-20T23:41:13.239Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/8967/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/6910/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/4815/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        },
+        {
+          "url": "https://picsum.photos/seed/1310/800/600.jpg",
+          "alt": "Image 4",
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sony WH-1000XM4",
+      "description": "Etat correct, quelques rayures sur le boitier mais fonctionne tres bien.",
+      "price_cents": 121982,
+      "category": "Audio",
+      "condition": "fair",
+      "status": "archived",
+      "is_featured": true,
+      "city": "Nice",
+      "postal_code": "06000",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-03-12T06:36:12.277Z",
+      "updated_at": "2026-03-22T19:03:39.397Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/8562/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Nintendo Switch OLED",
+      "description": "Occasion de particulier, en parfait etat de marche.",
+      "price_cents": 97705,
+      "category": "Appareils Photo",
+      "condition": "like_new",
+      "status": "active",
+      "is_featured": false,
+      "city": "Toulouse",
+      "postal_code": "31000",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-03-02T22:32:21.360Z",
+      "updated_at": "2026-03-21T00:05:28.125Z",
+      "published_at": "2026-03-08T06:51:50.566Z",
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/9310/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/6778/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/1340/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        },
+        {
+          "url": "https://picsum.photos/seed/2498/800/600.jpg",
+          "alt": "Image 4",
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Sony WH-1000XM4",
+      "description": "Modele recent, tres peu utilise. Vendu avec tous les accessoires.",
+      "price_cents": 50534,
+      "category": "Ordinateurs",
+      "condition": "parts",
+      "status": "archived",
+      "is_featured": false,
+      "city": "Paris",
+      "postal_code": "75001",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-03-15T14:01:56.355Z",
+      "updated_at": "2026-03-19T03:16:35.529Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/8598/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/4459/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/6770/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Kindle Paperwhite",
+      "description": "Modele recent, tres peu utilise. Vendu avec tous les accessoires.",
+      "price_cents": 126344,
+      "category": "Montres",
+      "condition": "unknown",
+      "status": "sold",
+      "is_featured": false,
+      "city": "Montpellier",
+      "postal_code": "34000",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-02-18T21:19:30.713Z",
+      "updated_at": "2026-03-25T10:32:07.038Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/8087/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/9184/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/2352/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "GoPro Hero 11",
+      "description": "Excellent etat, fonctionne parfaitement. Vendu avec chargeur et cable d'origine.",
+      "price_cents": 123324,
+      "category": "Telephones",
+      "condition": "unknown",
+      "status": "archived",
+      "is_featured": false,
+      "city": "Toulouse",
+      "postal_code": "31000",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-02-05T01:13:53.887Z",
+      "updated_at": "2026-03-20T23:28:33.448Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/5123/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/3471/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "iPhone 13 Pro 256GB",
+      "description": "Modele recent, tres peu utilise. Vendu avec tous les accessoires.",
+      "price_cents": 99740,
+      "category": "Audio",
+      "condition": "unknown",
+      "status": "active",
+      "is_featured": false,
+      "city": "Paris",
+      "postal_code": "75001",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-03-05T01:44:55.587Z",
+      "updated_at": "2026-03-21T17:01:42.948Z",
+      "published_at": "2026-03-23T09:34:33.759Z",
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/4544/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/2608/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/9874/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "PlayStation 5",
+      "description": "Modele recent, tres peu utilise. Vendu avec tous les accessoires.",
+      "price_cents": 104335,
+      "category": "Audio",
+      "condition": "parts",
+      "status": "sold",
+      "is_featured": false,
+      "city": "Bordeaux",
+      "postal_code": "33000",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-03-01T05:57:22.687Z",
+      "updated_at": "2026-03-23T08:10:28.094Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/7767/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/3786/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Logitech MX Master 3",
+      "description": "Occasion de particulier, en parfait etat de marche.",
+      "price_cents": 73239,
+      "category": "Montres",
+      "condition": "like_new",
+      "status": "reserved",
+      "is_featured": false,
+      "city": "Rennes",
+      "postal_code": "35000",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-03-24T03:06:00.759Z",
+      "updated_at": "2026-03-19T20:42:48.293Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/1430/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Fujifilm X-T4",
+      "description": "Tres bon etat, bien entretenu. Accessoires inclus.",
+      "price_cents": 52313,
+      "category": "Tablettes",
+      "condition": "unknown",
+      "status": "draft",
+      "is_featured": false,
+      "city": "Marseille",
+      "postal_code": "13001",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-02-04T21:59:24.756Z",
+      "updated_at": "2026-03-22T04:16:31.805Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/3086/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "iPad Air 5",
+      "description": "Tres bon etat, bien entretenu. Accessoires inclus.",
+      "price_cents": 98070,
+      "category": "Appareils Photo",
+      "condition": "fair",
+      "status": "archived",
+      "is_featured": false,
+      "city": "Paris",
+      "postal_code": "75001",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-02-23T01:52:35.928Z",
+      "updated_at": "2026-03-21T13:10:50.262Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/2797/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "GoPro Hero 11",
+      "description": "Tres bon etat, bien entretenu. Accessoires inclus.",
+      "price_cents": 103352,
+      "category": "Audio",
+      "condition": "parts",
+      "status": "sold",
+      "is_featured": false,
+      "city": "Marseille",
+      "postal_code": "13001",
+      "country": "FR",
+      "delivery_available": false,
+      "created_at": "2026-03-06T18:14:36.045Z",
+      "updated_at": "2026-03-25T03:31:44.319Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/4053/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        },
+        {
+          "url": "https://picsum.photos/seed/8589/800/600.jpg",
+          "alt": "Image 2",
+          "sort_order": 1
+        },
+        {
+          "url": "https://picsum.photos/seed/9973/800/600.jpg",
+          "alt": "Image 3",
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "GoPro Hero 11",
+      "description": "Excellent etat, fonctionne parfaitement. Vendu avec chargeur et cable d'origine.",
+      "price_cents": 131618,
+      "category": "Accessoires",
+      "condition": "parts",
+      "status": "draft",
+      "is_featured": false,
+      "city": "Strasbourg",
+      "postal_code": "67000",
+      "country": "FR",
+      "delivery_available": true,
+      "created_at": "2026-03-25T17:54:17.645Z",
+      "updated_at": "2026-03-20T17:26:19.125Z",
+      "published_at": null,
+      "images": [
+        {
+          "url": "https://picsum.photos/seed/8931/800/600.jpg",
+          "alt": "Image 1",
+          "sort_order": 0
+        }
+      ]
+    }
+  ]
+}

@@ -3,24 +3,25 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createItemsRouter } from './routes.js';
 import { errorHandler, notFoundHandler } from './error.middleware.js';
-import { SQLiteItemRepository } from '../persistence/item.repository.impl.js';
-import { ensureDatabaseInitialized } from '../persistence/database-setup.js';
+import { createItemRepository } from '../persistence/item.repository.factory.js';
+import { getDataBackend } from '../../shared/data-backend.js';
 
 /**
  * Create Express app
  */
-export function createApp(): express.Express {
+export async function createApp(): Promise<express.Express> {
   const app = express();
 
   // Middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Ensure database is initialized
-  ensureDatabaseInitialized();
+  if (getDataBackend() === 'sqlite') {
+    const { ensureDatabaseInitialized } = await import('../persistence/database-setup.js');
+    ensureDatabaseInitialized();
+  }
 
-  // Create repository instance
-  const itemRepository = new SQLiteItemRepository();
+  const itemRepository = await createItemRepository();
 
   const clientIndexPath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
@@ -55,7 +56,7 @@ export function createApp(): express.Express {
  * Start server
  */
 export async function startServer(port: number = 3000): Promise<void> {
-  const app = createApp();
+  const app = await createApp();
 
   return new Promise((resolve) => {
     const server = app.listen(port, () => {

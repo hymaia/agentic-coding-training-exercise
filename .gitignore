@@ -3,3 +3,5 @@ node_modules/
 openspec/
 AGENTS.md
 CLAUDE.md
+# Local Netlify folder
+.netlify

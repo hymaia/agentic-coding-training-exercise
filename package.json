@@ -6,8 +6,10 @@
     "db:empty": "tsx ./scripts/db-empty.ts",
     "db:seed": "tsx ./scripts/db-empty.ts && tsx ./scripts/db-init.ts && tsx ./scripts/db-seed.ts",
     "db:verify": "tsx ./scripts/db-verify.ts",
+    "data:json": "tsx ./scripts/generate-json-data.ts",
     "server:run": "node ./scripts/server-runner.js",
-    "server:verify": "node ./scripts/server-runner.js --verify-api"
+    "server:verify": "node ./scripts/server-runner.js --verify-api",
+    "netlify:build": "npm run build --prefix server/typescript && npm run data:json"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
@@ -23,6 +25,7 @@
   "dependencies": {
     "better-sqlite3": "^12.6.2",
     "express": "^5.2.1",
+    "serverless-http": "^4.0.0",
     "zod": "^4.3.6"
   }
 }
